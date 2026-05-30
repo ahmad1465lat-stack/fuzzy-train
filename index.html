@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuzzy-Train: Driving Training Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="mainMenu" class="menu">
+        <div class="menu-container">
+            <h1>🚗 Fuzzy-Train</h1>
+            <p>Learn to drive safely in a virtual environment</p>
+            <div class="menu-buttons">
+                <button onclick="startGame('basic')" class="btn btn-primary">Basic Controls</button>
+                <button onclick="startGame('parking')" class="btn btn-primary">Parking Training</button>
+                <button onclick="startGame('lane')" class="btn btn-primary">Lane Changes</button>
+                <button onclick="startGame('obstacle')" class="btn btn-primary">Obstacle Course</button>
+                <button onclick="startGame('emergency')" class="btn btn-primary">Emergency Stop</button>
+                <button onclick="startGame('traffic')" class="btn btn-primary">Traffic Navigation</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="gameContainer" style="display: none;">
+        <canvas id="gameCanvas"></canvas>
+        
+        <div id="hud">
+            <div class="hud-top">
+                <div class="hud-item">
+                    <span>Speed: </span>
+                    <span id="speedometer">0</span> km/h
+                </div>
+                <div class="hud-item">
+                    <span>Scenario: </span>
+                    <span id="scenario">Basic</span>
+                </div>
+                <div class="hud-item">
+                    <span>Score: </span>
+                    <span id="score">0</span>
+                </div>
+            </div>
+            
+            <div class="hud-middle">
+                <div id="instructions"></div>
+            </div>
+            
+            <div class="hud-bottom">
+                <div class="controls-info">
+                    <p><strong>Controls:</strong></p>
+                    <p>↑/W: Accelerate | ↓/S: Brake | ←/A: Left | →/D: Right | SPACE: Handbrake</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="feedbackPanel" class="feedback-panel">
+            <div id="feedbackText"></div>
+        </div>
+
+        <button onclick="backToMenu()" class="btn btn-secondary menu-btn">Back to Menu</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cannon@0.20.0/build/cannon.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
